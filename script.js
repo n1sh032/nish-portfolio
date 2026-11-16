@@ -270,6 +270,22 @@ function updateScrollMotion() {
   intro.style.setProperty('--desk-turn', `${-8 * travel}deg`);
 
   const viewportHeight = window.innerHeight;
+
+  sections.forEach((section, index) => {
+    if (section === intro) return;
+
+    const top = section.getBoundingClientRect().top;
+    const entryDistance = Math.min(380, viewportHeight * .5);
+    const entry = Math.max(0, Math.min(1, (top - viewportHeight * .3) / entryDistance));
+    const shiftX = Math.min(55, window.innerWidth * .055) * entry;
+    const direction = index % 2 === 0 ? -1 : 1;
+
+    section.style.setProperty('--chapter-scale', 1 - entry * .055);
+    section.style.setProperty('--chapter-x', `${shiftX * direction}px`);
+    section.style.setProperty('--chapter-counter-x', `${shiftX * -direction}px`);
+    section.style.setProperty('--chapter-y', `${entry * 58}px`);
+    section.style.setProperty('--chapter-counter-y', `${entry * 92}px`);
+  });
   projectArt.forEach(art => {
     if (art.closest('[hidden]')) return;
     const box = art.getBoundingClientRect();

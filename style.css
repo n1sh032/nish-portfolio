@@ -853,3 +853,46 @@ html {
     display: none;
   }
 }
+/* Each section is a separate panel, with its own pace and direction. */
+main > section {
+  position: relative;
+  isolation: isolate;
+}
+
+#work, #about, #journey, #contact {
+  border-radius: clamp(1rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem) 0 0;
+}
+
+main {
+  background: #171a25;
+}
+
+#work {
+  background: var(--paper);
+}
+
+#work::before {
+  content: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main > section:not(.hero) {
+    transform-origin: center top;
+    transform: scale(var(--chapter-scale, 1));
+  }
+
+  main > section:not(.hero) > * {
+    translate: var(--chapter-x, 0px) var(--chapter-y, 0px);
+  }
+
+  main > section:not(.hero) > :nth-child(even) {
+    translate: var(--chapter-counter-x, 0px) var(--chapter-counter-y, 0px);
+  }
+
+  /* Keep controls still when someone tabs into a section. */
+  main > section:focus-within,
+  main > section:focus-within > * {
+    transform: none;
+    translate: none;
+  }
+}
