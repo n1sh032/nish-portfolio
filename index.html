@@ -1,2 +1,259 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Gobinath Nishanth — Computer Engineering student in Singapore building AI tools, software and embedded systems."><title>Nishanth — Ideas into working things.</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body><a class="skip" href="#work">Skip to work</a><header><a class="logo" href="#">nish<span>✳</span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Beyond code</a></nav><a class="contact-link" href="#contact">Let’s talk ↗</a></header><main><section class="hero"><div class="eyebrow"><span class="dot"></span> COMPUTER ENGINEERING · SINGAPORE</div><h1>Curiosity in.<br>Good things <em>out.</em></h1><div class="hero-bottom"><div><p>I’m Nishanth. I turn “what if?” into software, AI experiments, and things that work in the real world.</p><a class="button" href="#work">Explore my work <span>↘</span></a><a class="text-link" href="https://github.com/n1sh032">GitHub ↗</a></div><div class="orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><span>BUILD.<br>LEARN.<br>REPEAT.</span><small>IDEAS IN MOTION / 01</small></div></div><div class="hero-foot"><span>GOBINATH NISHANTH</span><span>STUDENT. BUILDER. ALWAYS CURIOUS.</span><span>SCROLL TO EXPLORE ↓</span></div></section><section id="work"><div class="section-head"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>Less talk.<br>More <em>building.</em></h2></div><p>From understanding a basketball game to making a microcontroller grow something. Here’s where my curiosity goes.</p></div><div class="filters" aria-label="Filter projects"><button class="active" data-filter="all" aria-pressed="true">All work <sup>05</sup></button><button data-filter="ai" aria-pressed="false">AI & vision</button><button data-filter="software" aria-pressed="false">Software</button><button data-filter="hardware" aria-pressed="false">Hardware</button></div><div id="projects" class="projects"></div><p id="count" class="eyebrow" aria-live="polite"></p></section><section id="about" class="about"><p class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</p><div class="about-grid"><h2>A foot in software.<br>A hand on <em>hardware.</em></h2><div><p class="large">I like understanding how things work. I like making them work even more.</p><p>I’m studying Computer Engineering at Temasek Polytechnic. My projects connect the dots between AI, data, application development, and embedded systems — from Python backends to sensors and motor control.</p><p>My approach is simple: build something, learn from what breaks, and make the next version better.</p><div class="education"><span>2024 — 2028 (EXPECTED)</span><h3>Diploma in Computer Engineering</h3><p>Temasek Polytechnic<br>A grades in Data Visualisation and Analysis, Object-Oriented Programming, and Microcontroller Application.</p></div></div></div><div class="toolkit"><div><small>AI & DATA</small><p>Python · PyTorch · CLIP<br>Pandas · scikit-learn · SQL</p></div><div><small>APPLICATIONS</small><p>JavaScript · TypeScript · C#<br>FastAPI · Flask · .NET · Blazor</p></div><div><small>PHYSICAL COMPUTING</small><p>C · Embedded C · PIC<br>ADC · PWM · UART · Sensors</p></div></div></section><section id="journey"><div class="section-head"><div><p class="eyebrow">03 / BEYOND THE KEYBOARD</p><h2>Building things.<br><em>Bringing people along.</em></h2></div><p>Good engineering needs people skills, too. I make time for the communities that helped me grow.</p></div><div class="journey-grid"><div><h3 class="minor-title">SHOWING UP</h3><details open><summary>Coding mentor <span>2025 ↗</span></summary><p>Taught basic coding to children from low-income families in my neighbourhood and at my secondary school. Making a first line of code feel possible is a pretty good reason to teach.</p></details><details><summary>Engineering Studies Club <span>2025 — NOW ↗</span></summary><p>As a committee member, I helped organise Freshman Orientation activities and supported new students during the programme.</p></details><details><summary>Engineering Student Ambassadors <span>2025 — NOW ↗</span></summary><p>Helped run Temasek Polytechnic’s Open House, award ceremonies, and other student events as a committee member.</p></details><details><summary>National Day Parade <span>↗</span></summary><p>Served as Member-in-Charge, helping facilitate the national event and supporting on-site coordination with the team.</p></details></div><div class="awards"><p class="eyebrow">A FEW MILESTONES</p><div><b>Top 20</b><p>NiCE Hackathon finalist<br><small>Nanyang Technological University · 2026</small></p></div><div><b>Silver</b><p>Singapore Physics Olympiad<br><small>2024</small></p></div><div><b>Honourable mention</b><p>Singapore Chemistry Olympiad<br><small>2024</small></p></div></div></div></section><section id="contact"><p class="eyebrow">04 / WHAT’S NEXT?</p><h2>Got a good problem?<br><em>Let’s build on it.</em></h2><p>I’d love to connect about internships, interesting projects, and opportunities in AI, data, or software.</p><a class="button" href="mailto:nishanthgobinath39@gmail.com">Say hello ↗</a><button class="copy" id="copy">Copy email ⧉</button><span id="copy-status" role="status"></span><div class="contact-bottom"><a href="https://github.com/n1sh032">Explore my GitHub ↗</a><a href="#">Back to top ↑</a></div></section></main><footer><a class="logo" href="#">nish<span>✳</span></a><span>© <span id="year"></span> Gobinath Nishanth</span><span>Made with curiosity. Singapore.</span></footer><dialog id="project-dialog"><button class="close" aria-label="Close project">×</button><p class="eyebrow" id="dialog-type"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><p id="dialog-tech"></p><a id="dialog-link" class="button">Explore the source ↗</a></dialog></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Gobinath Nishanth — Computer Engineering student in Singapore building AI tools, software and embedded systems.">
+    <title>Nishanth — Ideas into working things.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to work</a>
+    <header>
+      <a class="logo" href="#">
+        nish
+        <span>✳</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#journey">Beyond code</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾</button>
+      <a class="contact-link" href="#contact">Let’s talk ↗</a>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          COMPUTER ENGINEERING · SINGAPORE
+        </div>
+        <h1>
+          Hey, I’m Nish.
+          <br>
+          I build
+          <em>things.</em>
+        </h1>
+        <div class="hero-bottom">
+          <div>
+            <p>Computer Engineering student at Temasek Polytechnic. Usually somewhere between a Python experiment, a circuit, and an idea I have to try.</p>
+            <a class="button" href="#work">
+              Explore my work
+              <span>↘</span>
+            </a>
+            <a class="text-link" href="https://github.com/n1sh032">GitHub ↗</a>
+          </div>
+          <div class="desk">
+            <span class="tape" aria-hidden="true"></span>
+            <div class="desk-top">
+              <span>nish / workbench</span>
+              <span>● ● ●</span>
+            </div>
+            <p class="desk-caption">A small experiment. Go on, try it.</p>
+            <div class="demo-court" id="demo-court" aria-hidden="true">
+              <div class="court-circle"></div>
+              <span class="player player-one">01</span>
+              <span class="player player-two">02</span>
+              <span class="ball">●</span>
+            </div>
+            <div class="desk-controls">
+              <button id="run-demo">▶ Run a play</button>
+              <span id="demo-status" role="status">Ready when you are</span>
+            </div>
+            <small>COURTVISION-INSPIRED ANIMATION · ILLUSTRATIVE DEMO</small>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <span>GOBINATH NISHANTH</span>
+          <span>STUDENT. BUILDER. ALWAYS CURIOUS.</span>
+          <span>SCROLL TO EXPLORE ↓</span>
+        </div>
+      </section>
+      <section id="work">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / SELECTED WORK</p>
+            <h2>
+              The project
+              <br>
+              <em>rabbit hole.</em>
+            </h2>
+          </div>
+          <p>Five projects. A lot of different problems. Pick a category, open a project, and get into what I built and how it works.</p>
+        </div>
+        <div class="filters" aria-label="Filter projects">
+          <button class="active" data-filter="all" aria-pressed="true">
+            All work
+            <sup>05</sup>
+          </button>
+          <button data-filter="ai" aria-pressed="false">AI & vision</button>
+          <button data-filter="software" aria-pressed="false">Software</button>
+          <button data-filter="hardware" aria-pressed="false">Hardware</button>
+        </div>
+        <div id="projects" class="projects"></div>
+        <p id="count" class="eyebrow" aria-live="polite"></p>
+      </section>
+      <section id="about" class="about">
+        <p class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</p>
+        <div class="about-grid">
+          <h2>
+            Software brain.
+            <br>
+            <em>Hardware hands.</em>
+          </h2>
+          <div>
+            <p class="large">I like understanding how things work. I like making them work even more.</p>
+            <p>I’m studying Computer Engineering at Temasek Polytechnic. My projects connect the dots between AI, data, application development, and embedded systems — from Python backends to sensors and motor control.</p>
+            <p>My approach is simple: build something, learn from what breaks, and make the next version better.</p>
+            <div class="education">
+              <span>2024 — 2028 (EXPECTED)</span>
+              <h3>Diploma in Computer Engineering</h3>
+              <p>
+                Temasek Polytechnic
+                <br>
+                A grades in Data Visualisation and Analysis, Object-Oriented Programming, and Microcontroller Application.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="toolkit">
+          <div>
+            <small>AI & DATA</small>
+            <p>
+              Python · PyTorch · CLIP
+              <br>
+              Pandas · scikit-learn · SQL
+            </p>
+          </div>
+          <div>
+            <small>APPLICATIONS</small>
+            <p>
+              JavaScript · TypeScript · C#
+              <br>
+              FastAPI · Flask · .NET · Blazor
+            </p>
+          </div>
+          <div>
+            <small>PHYSICAL COMPUTING</small>
+            <p>
+              C · Embedded C · PIC
+              <br>
+              ADC · PWM · UART · Sensors
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="journey">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 / BEYOND THE KEYBOARD</p>
+            <h2>
+              There’s life
+              <br>
+              <em>outside the IDE.</em>
+            </h2>
+          </div>
+          <p>National events, campus communities, and someone’s first line of code. These experiences are a big part of the person I’m becoming.</p>
+        </div>
+        <div class="journey-grid">
+          <div>
+            <h3 class="minor-title">LEADERSHIP & COMMUNITY</h3>
+            <details open>
+              <summary>
+                Coding mentor
+                <span>2025 ↗</span>
+              </summary>
+              <p>Introduced children from low-income families in my neighbourhood and at my secondary school to the basics of coding. I broke unfamiliar ideas down into approachable steps and helped make programming feel less intimidating. Sharing what I know is part of why I enjoy technology: a first working program can give someone a reason to keep exploring.</p>
+            </details>
+            <details>
+              <summary>
+                Engineering Studies Club
+                <span>2025 — NOW ↗</span>
+              </summary>
+              <p>As a committee member, I contributed to the planning and delivery of Freshman Orientation activities, helping new students find their feet in an unfamiliar environment. It’s the people side of engineering: coordinating with a team, communicating clearly, and turning a plan into an experience people actually enjoy.</p>
+            </details>
+            <details>
+              <summary>
+                Engineering Student Ambassadors
+                <span>2025 — NOW ↗</span>
+              </summary>
+              <p>As a committee member of Engineering Student Ambassadors, I contributed to events that put Temasek Polytechnic in front of prospective students and celebrate its community. From Open House to award ceremonies, I supported event delivery and represented the school through hands-on involvement. It’s an opportunity to take responsibility beyond coursework and be part of how people experience TP.</p>
+            </details>
+            <details>
+              <summary>
+                National Day Parade
+                <span>↗</span>
+              </summary>
+              <p>As Member-in-Charge at the National Day Parade, I took on an on-site coordination role at one of Singapore’s most significant national events. Working alongside the team to facilitate the event meant staying responsive, communicating clearly, and following through on responsibilities in a live setting. A very different kind of execution from a classroom project — and an experience I’m proud to have contributed to.</p>
+            </details>
+          </div>
+          <div class="awards">
+            <p class="eyebrow">THE PROUD-OF-THIS CORNER</p>
+            <div>
+              <b>Top 20</b>
+              <p>
+                NiCE Hackathon finalist
+                <br>
+                <small>Nanyang Technological University · 2026</small>
+              </p>
+            </div>
+            <div>
+              <b>Silver</b>
+              <p>
+                Singapore Physics Olympiad
+                <br>
+                <small>2024</small>
+              </p>
+            </div>
+            <div>
+              <b>Honourable mention</b>
+              <p>
+                Singapore Chemistry Olympiad
+                <br>
+                <small>2024</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <p class="eyebrow">04 / WHAT’S NEXT?</p>
+        <h2>
+          Next project?
+          <br>
+          <em>Count me in.</em>
+        </h2>
+        <p>I’d love to connect about internships, interesting projects, and opportunities in AI, data, or software.</p>
+        <a class="button" href="mailto:nishanthgobinath39@gmail.com">Say hello ↗</a>
+        <button class="copy" id="copy">Copy email ⧉</button>
+        <span id="copy-status" role="status"></span>
+        <div class="contact-bottom">
+          <a href="https://github.com/n1sh032">Explore my GitHub ↗</a>
+          <a href="#">Back to top ↑</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="logo" href="#">
+        nish
+        <span>✳</span>
+      </a>
+      <span>
+        ©
+        <span id="year"></span>
+        Gobinath Nishanth
+      </span>
+      <span>Made with curiosity. Singapore.</span>
+    </footer>
+    <dialog id="project-dialog">
+      <button class="close" aria-label="Close project">×</button>
+      <p class="eyebrow" id="dialog-type"></p>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div id="dialog-details"></div>
+      <p id="dialog-tech"></p>
+      <a id="dialog-link" class="button">Explore the source ↗</a>
+    </dialog>
+  </body>
+</html>
