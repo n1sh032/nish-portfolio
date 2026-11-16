@@ -218,20 +218,22 @@ themeButton.addEventListener('click', () => {
 const demoButton = document.querySelector('#run-demo');
 const demoCourt = document.querySelector('#demo-court');
 const demoStatus = document.querySelector('#demo-status');
-let demoTimer;
+const playDuration = parseFloat(
+  getComputedStyle(demoCourt).getPropertyValue('--play-duration')
+);
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 demoButton.addEventListener('click', () => {
-  clearTimeout(demoTimer);
   demoButton.disabled = true;
   demoCourt.classList.add('playing');
   demoStatus.textContent = 'Tracking the play…';
 
-  demoTimer = setTimeout(() => {
+  setTimeout(() => {
     demoCourt.classList.remove('playing');
     demoStatus.textContent = 'Play complete. Open CourtVision below.';
     demoButton.textContent = '↻ Run it again';
     demoButton.disabled = false;
-  }, 2400);
+  }, reduceMotion.matches ? 0 : playDuration);
 });
 
 document.querySelector('#copy').addEventListener('click', async () => {

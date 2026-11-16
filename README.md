@@ -1,9 +1,21 @@
-# Nishanth — Portfolio
+# Nishanth's portfolio
 
-Personal portfolio for Gobinath Nishanth. Built with HTML, CSS and JavaScript.
+A static portfolio built with HTML, CSS and JavaScript. Open `index.html` in a browser or serve the folder with a static web server. GitHub Pages publishes the root of `main`.
 
-Open `index.html` in a browser, or serve this folder using any static web server. No build step or package installation is required.
+## File structure
 
-Features: responsive layout, project category filters, accessible project dialogs, email copying, animated CSS artwork, and reduced-motion support.
+| File | What to change here |
+| --- | --- |
+| `index.html` | Page sections, navigation, leadership and contact copy |
+| `design.css` | Theme colours, font scale, page width, shared grid and motion settings |
+| `style.css` | Styles for the workbench, project cards, timeline, and dialogs |
+| `script.js` | Project writeups, filters, dialogs, theme preference and basketball demo |
 
-Edit project content in `script.js`, page content in `index.html`, and styling in `style.css`.
+## Design system
+
+- **Colour**. Warm paper and graphite provide the base. Violet marks actions, yellow highlights selected items, and orange marks keyboard focus. Dark mode swaps the base colours and uses lavender for actions.
+- **Typography**. Space Grotesk for headings, DM Sans for reading, and the system monospace font for labels. Hero and section titles scale with the viewport.
+- **Layout**. The page caps at 90rem with 6% side gutters. The shared grid defaults to two columns, supports a three column toolkit, and stacks at 650px. Leadership uses a wider first column on larger screens.
+- **Motion**. Buttons respond in 200ms, project graphics ease in 300ms, and the basketball demo takes 2.4 seconds. With reduced motion enabled, the demo skips straight to its completion state.
+
+Update shared values in `design.css` first. Keep styles specific to a single component in `style.css`.
