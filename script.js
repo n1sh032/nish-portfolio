@@ -249,3 +249,46 @@ document.querySelector('#copy').addEventListener('click', async () => {
 renderProjects();
 filterProjects('all');
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Highlight the current section and show how far down the page we are.
+const sections = document.querySelectorAll('main > section[id]');
+const sectionLinks = document.querySelectorAll('.site-header a[href^="#"]');
+let scrollFrame = 0;
+
+function updateScrollPosition() {
+  scrollFrame = 0;
+  const page = document.documentElement;
+  const scrollRange = page.scrollHeight - window.innerHeight;
+  const progress = scrollRange > 0 ? Math.min(1, window.scrollY / scrollRange) : 0;
+  page.style.setProperty('--reading-progress', progress);
+
+  let currentSection = sections[0].id;
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= window.innerHeight * .35) {
+      currentSection = section.id;
+    }
+  }
+  if (progress >= .99) currentSection = sections[sections.length - 1].id;
+
+  sectionLinks.forEach(link => {
+    if (link.hash === '#' + currentSection) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+function scheduleScrollUpdate() {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollPosition);
+}
+
+window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
+window.addEventListener('resize', scheduleScrollUpdate);
+document.querySelectorAll('[data-filter]').forEach(button => {
+  button.addEventListener('click', scheduleScrollUpdate);
+});
+document.querySelectorAll('details').forEach(detail => {
+  detail.addEventListener('toggle', scheduleScrollUpdate);
+});
+updateScrollPosition();
