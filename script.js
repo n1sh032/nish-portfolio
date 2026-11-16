@@ -253,10 +253,34 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 // Highlight the current section and show how far down the page we are.
 const sections = document.querySelectorAll('main > section[id]');
 const sectionLinks = document.querySelectorAll('.site-header a[href^="#"]');
+const intro = document.querySelector('#intro');
+const projectArt = document.querySelectorAll('.project-art');
 let scrollFrame = 0;
+
+function updateScrollMotion() {
+  if (reduceMotion.matches) return;
+
+  const distance = intro.getBoundingClientRect().top + window.scrollY;
+  const travel = Math.min(1, Math.max(0, (window.scrollY - distance + 100) / 360));
+  intro.style.setProperty('--name-offset', `${-100 * travel}px`);
+  intro.style.setProperty('--name-scale', 1 - travel * .18);
+  intro.style.setProperty('--name-opacity', 1 - travel * .45);
+  intro.style.setProperty('--desk-x', `${24 * travel}px`);
+  intro.style.setProperty('--desk-y', `${-68 * travel}px`);
+  intro.style.setProperty('--desk-turn', `${-8 * travel}deg`);
+
+  const viewportHeight = window.innerHeight;
+  projectArt.forEach(art => {
+    if (art.closest('[hidden]')) return;
+    const box = art.getBoundingClientRect();
+    const offset = (box.top + box.height / 2 - viewportHeight / 2) * .14;
+    art.style.setProperty('--art-offset', `${Math.max(-38, Math.min(38, offset))}px`);
+  });
+}
 
 function updateScrollPosition() {
   scrollFrame = 0;
+  updateScrollMotion();
   const page = document.documentElement;
   const scrollRange = page.scrollHeight - window.innerHeight;
   const progress = scrollRange > 0 ? Math.min(1, window.scrollY / scrollRange) : 0;
