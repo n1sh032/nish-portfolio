@@ -1053,3 +1053,41 @@ main {
     width: min(100%, 25rem);
   }
 }
+
+/* Phones keep the two main scenes and skip the secondary parallax. */
+@media (max-width: 650px) {
+  .reading-progress {
+    display: none;
+  }
+
+  .hero h1, .hero .desk, main > section:not(.hero) {
+    transform: none;
+    opacity: 1;
+  }
+
+  main > section:not(.hero) > *,
+  main > section:not(.hero) > :nth-child(even),
+  .project-art .symbol {
+    translate: none;
+  }
+
+  .story-code {
+    background: #201b38;
+  }
+
+  .story-basketball {
+    background: #362019;
+  }
+
+  .story-editor, .story-court, .story-ball {
+    box-shadow: none;
+  }
+
+  .story-ready .story-scene {
+    will-change: opacity;
+  }
+
+  .story-ready .story-object {
+    will-change: transform;
+  }
+}

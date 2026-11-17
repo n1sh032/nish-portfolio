@@ -255,10 +255,12 @@ const sections = document.querySelectorAll('main > section[id]');
 const sectionLinks = document.querySelectorAll('.site-header a[href^="#"]');
 const intro = document.querySelector('#intro');
 const projectArt = document.querySelectorAll('.project-art');
+const compactScreen = window.matchMedia('(max-width: 650px)');
 let scrollFrame = 0;
+let activeSection;
 
 function updateScrollMotion() {
-  if (reduceMotion.matches) return;
+  if (reduceMotion.matches || compactScreen.matches) return;
 
   const distance = intro.getBoundingClientRect().top + window.scrollY;
   const travel = Math.min(1, Math.max(0, (window.scrollY - distance + 100) / 360));
@@ -301,6 +303,19 @@ const codeScene = storyTrack.querySelector('.story-code');
 const basketballScene = storyTrack.querySelector('.story-basketball');
 document.body.classList.add('story-ready');
 
+let storyStart = 0;
+let storyDistance = 0;
+let lastStoryProgress;
+let pageScrollRange = 0;
+
+function measureScrollLayout() {
+  storyStart = storyTrack.getBoundingClientRect().top + window.scrollY;
+  storyDistance = storyTrack.offsetHeight - storyStage.offsetHeight;
+  pageScrollRange = document.documentElement.scrollHeight - window.innerHeight;
+  lastStoryProgress = undefined;
+  scheduleScrollUpdate();
+}
+
 function clampProgress(value) {
   return Math.max(0, Math.min(1, value));
 }
@@ -321,10 +336,11 @@ function moveScene(scene, progress, direction) {
 function updateStory() {
   if (reduceMotion.matches) return;
 
-  const distance = storyTrack.offsetHeight - storyStage.offsetHeight;
-  if (distance <= 0) return;
+  if (storyDistance <= 0) return;
 
-  const progress = clampProgress(-storyTrack.getBoundingClientRect().top / distance);
+  const progress = clampProgress((window.scrollY - storyStart) / storyDistance);
+  if (progress === lastStoryProgress) return;
+  lastStoryProgress = progress;
   moveScene(codeScene, progress / .55 + .07, 1);
   moveScene(basketballScene, (progress - .41) / .59, -1);
   basketballScene.style.setProperty('--ball-turn', (progress * 280 - 135) + 'deg');
@@ -334,10 +350,11 @@ function updateScrollPosition() {
   scrollFrame = 0;
   updateScrollMotion();
   updateStory();
-  const page = document.documentElement;
-  const scrollRange = page.scrollHeight - window.innerHeight;
-  const progress = scrollRange > 0 ? Math.min(1, window.scrollY / scrollRange) : 0;
-  page.style.setProperty('--reading-progress', progress);
+  // The desktop header is sticky. The phone header scrolls away.
+  if (compactScreen.matches) return;
+
+  const progress = pageScrollRange > 0 ? clampProgress(window.scrollY / pageScrollRange) : 0;
+  document.querySelector('.reading-progress').style.setProperty('--reading-progress', progress);
 
   let currentSection = sections[0].id;
   for (const section of sections) {
@@ -346,6 +363,9 @@ function updateScrollPosition() {
     }
   }
   if (progress >= .99) currentSection = sections[sections.length - 1].id;
+
+  if (activeSection === currentSection) return;
+  activeSection = currentSection;
 
   sectionLinks.forEach(link => {
     if (link.hash === '#' + currentSection) {
@@ -361,12 +381,19 @@ function scheduleScrollUpdate() {
 }
 
 window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
-window.addEventListener('resize', scheduleScrollUpdate);
-reduceMotion.addEventListener('change', scheduleScrollUpdate);
+window.addEventListener('resize', measureScrollLayout);
+reduceMotion.addEventListener('change', measureScrollLayout);
+
+if ('ResizeObserver' in window) {
+  const layoutObserver = new ResizeObserver(measureScrollLayout);
+  layoutObserver.observe(document.querySelector('main'));
+  layoutObserver.observe(storyTrack);
+}
+
 document.querySelectorAll('[data-filter]').forEach(button => {
-  button.addEventListener('click', scheduleScrollUpdate);
+  button.addEventListener('click', measureScrollLayout);
 });
 document.querySelectorAll('details').forEach(detail => {
-  detail.addEventListener('toggle', scheduleScrollUpdate);
+  detail.addEventListener('toggle', measureScrollLayout);
 });
-updateScrollPosition();
+measureScrollLayout();
