@@ -294,9 +294,46 @@ function updateScrollMotion() {
   });
 }
 
+
+const storyTrack = document.querySelector('.scroll-story');
+const storyStage = storyTrack.querySelector('.story-stage');
+const codeScene = storyTrack.querySelector('.story-code');
+const basketballScene = storyTrack.querySelector('.story-basketball');
+document.body.classList.add('story-ready');
+
+function clampProgress(value) {
+  return Math.max(0, Math.min(1, value));
+}
+
+function moveScene(scene, progress, direction) {
+  const enter = clampProgress(progress / .26);
+  const leave = clampProgress((progress - .64) / .36);
+  const offset = (1 - enter) - leave;
+  const travel = Math.min(window.innerWidth * .8, 720);
+
+  scene.style.setProperty('--scene-opacity', enter * (1 - leave));
+  scene.style.setProperty('--scene-x', (offset * travel * direction) + 'px');
+  scene.style.setProperty('--scene-y', (leave * -110) + 'px');
+  scene.style.setProperty('--scene-scale', .75 + enter * .25 + leave * .25);
+  scene.style.setProperty('--scene-turn', (offset * 19 * direction) + 'deg');
+}
+
+function updateStory() {
+  if (reduceMotion.matches) return;
+
+  const distance = storyTrack.offsetHeight - storyStage.offsetHeight;
+  if (distance <= 0) return;
+
+  const progress = clampProgress(-storyTrack.getBoundingClientRect().top / distance);
+  moveScene(codeScene, progress / .55 + .07, 1);
+  moveScene(basketballScene, (progress - .41) / .59, -1);
+  basketballScene.style.setProperty('--ball-turn', (progress * 280 - 135) + 'deg');
+}
+
 function updateScrollPosition() {
   scrollFrame = 0;
   updateScrollMotion();
+  updateStory();
   const page = document.documentElement;
   const scrollRange = page.scrollHeight - window.innerHeight;
   const progress = scrollRange > 0 ? Math.min(1, window.scrollY / scrollRange) : 0;
@@ -325,6 +362,7 @@ function scheduleScrollUpdate() {
 
 window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
 window.addEventListener('resize', scheduleScrollUpdate);
+reduceMotion.addEventListener('change', scheduleScrollUpdate);
 document.querySelectorAll('[data-filter]').forEach(button => {
   button.addEventListener('click', scheduleScrollUpdate);
 });
