@@ -486,7 +486,7 @@ details p {
 }
 #contact {
   background: var(--brand);
-  color: #fffaf0;
+  color: #fbf4e7;
   border-top: 2px solid var(--fixed-ink);
 }
 #contact em {
@@ -728,15 +728,15 @@ html {
 }
 
 .hero {
-  --scene: #171a25;
+  --scene: #15251f;
   --ink: #f7f3ec;
   --line: #b7adc7;
-  --accent: #c4b4ff;
-  --paper: #171a25;
-  --surface: #242738;
+  --accent: #b8e2bb;
+  --paper: #15251f;
+  --surface: #20372e;
   --muted: #ddd5e9;
   color: var(--ink);
-  background: radial-gradient(ellipse at 75% 30%, #352a59, transparent 65%), var(--scene);
+  background: radial-gradient(ellipse at 75% 30%, #274638, transparent 65%), var(--scene);
 }
 
 .hero h1 {
@@ -766,11 +766,11 @@ html {
 }
 
 .about {
-  background: #dce9df;
+  background: #e1ecdf;
 }
 
 #journey {
-  background: #f3e6ff;
+  background: #f3e3d5;
 }
 
 .dark .about {
@@ -778,7 +778,7 @@ html {
 }
 
 .dark #journey {
-  background: #282139;
+  background: #352720;
 }
 
 #contact {
@@ -864,7 +864,7 @@ main > section {
 }
 
 main {
-  background: #171a25;
+  background: #15251f;
 }
 
 #work {
@@ -920,7 +920,7 @@ main {
 }
 
 .story-code {
-  background: radial-gradient(ellipse at 78% 48%, #30276a, #141625 68%);
+  background: radial-gradient(ellipse at 78% 48%, #28513f, #15241e 68%);
 }
 
 .story-basketball {
@@ -943,9 +943,9 @@ main {
 }
 
 .story-editor {
-  border: 1px solid #8277b6;
+  border: 1px solid #6e9982;
   border-radius: 1rem;
-  background: #191929;
+  background: #172822;
   box-shadow: 0 2rem 6rem #0b081c;
   overflow: hidden;
   min-width: 0;
@@ -953,8 +953,8 @@ main {
 
 .editor-tab {
   padding: .8rem 1.25rem;
-  background: #302948;
-  color: #e6dafe;
+  background: #294337;
+  color: #e5efe3;
 }
 
 .story-editor pre {
@@ -1072,7 +1072,7 @@ main {
   }
 
   .story-code {
-    background: #201b38;
+    background: #1b3028;
   }
 
   .story-basketball {

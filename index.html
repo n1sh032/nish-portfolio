@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Gobinath Nishanth — Computer Engineering student in Singapore building AI tools, software and embedded systems.">
     <title>Nishanth — Ideas into working things.</title>
-    <link rel="stylesheet" href="design.css?v=1">
-    <link rel="stylesheet" href="style.css?v=9">
-    <script src="script.js?v=9" defer></script>
+    <link rel="stylesheet" href="design.css?v=2">
+    <link rel="stylesheet" href="style.css?v=10">
+    <script src="script.js?v=8" defer></script>
   </head>
   <body>
     <a class="skip" href="#work">Skip to work</a>
@@ -18,7 +18,7 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
-        <a href="#about">About</a>
+        <a href="#about">About me</a>
         <a href="#journey">Beyond code</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">☾</button>
@@ -34,7 +34,7 @@
         <h1>Gobinath<br>Nishanth</h1>
         <div class="hero-bottom layout-grid">
           <div>
-            <p>Computer Engineering student at Temasek Polytechnic. Usually somewhere between a Python experiment, a circuit, and an idea I have to try.</p>
+            <p>Hey, I’m Nish! I study Computer Engineering at Temasek Polytechnic. I like building things I can try for myself, from a basketball replay tool to a controller that waters plants.</p>
             <a class="button" href="#work">
               Explore my work
               <span>↘</span>
@@ -47,7 +47,7 @@
               <span>nish / workbench</span>
               <span>● ● ●</span>
             </div>
-            <p class="desk-caption">A small experiment. Go on, try it.</p>
+            <p class="desk-caption">Try a play from my CourtVision demo.</p>
             <div class="demo-court" id="demo-court" aria-hidden="true">
               <div class="court-circle"></div>
               <span class="player player-one">01</span>
@@ -100,12 +100,10 @@
           <div>
             <p class="eyebrow">01 / SELECTED WORK</p>
             <h2>
-              The project
-              <br>
-              <em>rabbit hole.</em>
+              Projects I’ve built
             </h2>
           </div>
-          <p>Five projects. A lot of different problems. Pick a category, open a project, and get into what I built and how it works.</p>
+          <p>Start with CourtVision if you’re curious about computer vision, or Smart Urban Farm if you want to see what I’ve built with sensors and a microcontroller.</p>
         </div>
         <div class="filters" aria-label="Filter projects">
           <button class="active" data-filter="all" aria-pressed="true">
@@ -116,132 +114,19 @@
           <button data-filter="software" aria-pressed="false">Software</button>
           <button data-filter="hardware" aria-pressed="false">Hardware</button>
         </div>
-        <div id="projects" class="projects layout-grid">
-          <article class="project" data-category="ai">
-            <div class="project-art court" aria-hidden="true">
-              <span class="art-label">EXPERIMENT 01</span>
-              <span class="symbol">◎</span>
-              <span class="art-caption">TRACK → ESTIMATE → REVIEW</span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta"><span>COMPUTER VISION</span><span>01</span></div>
-              <h3>CourtVision</h3>
-              <p class="project-tagline">A closer look at the game.</p>
-              <p class="project-summary">Basketball video analysis with player tracking, pose estimation and annotated video. A development branch flags candidate contact events for human review.</p>
-              <div class="tags"><span>Python</span><span>Player tracking</span><span>Pose estimation</span></div>
-              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
-              <a class="project-source text-link" href="https://github.com/n1sh032/CourtVision">Explore the source ↗</a>
-              <template class="project-details">
-                <section class="case-section"><h3>The problem</h3><p>A basketball game moves quickly. Reviewing footage means finding the moments that deserve a second look, then understanding how players moved around them.</p></section>
-                <section class="case-section"><h3>What I built</h3><ul><li>Connected player tracking and pose estimation to a video-analysis workflow.</li><li>Prototyped contact candidates from player positions and body keypoints on a development branch.</li><li>Rendered boxes, track IDs and skeletons over the source video. A frame review viewer is planned.</li></ul></section>
-                <section class="case-section"><h3>A decision that matters</h3><p>Keep a person in the review loop. A flagged moment is a candidate for inspection, rather than a definitive foul decision. That distinction matters when movement, camera angles, and overlapping players make video difficult to interpret.</p></section>
-                <p class="case-takeaway">Connecting computer vision to video review through pose data, annotated clips and experimental contact candidates.</p>
-              </template>
-            </div>
-          </article>
-          <article class="project" data-category="ai">
-            <div class="project-art sort" aria-hidden="true">
-              <span class="art-label">EXPERIMENT 02</span>
-              <span class="symbol">▤</span>
-              <span class="art-caption">IMAGES / DOCUMENTS / ORDER</span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta"><span>APPLIED AI</span><span>02</span></div>
-              <h3>Sortwise</h3>
-              <p class="project-tagline">A little less digital chaos.</p>
-              <p class="project-summary">A folder watcher that sorts images using CLIP and PDFs using extracted text. It logs manual corrections for a separate training experiment.</p>
-              <div class="tags"><span>Python</span><span>CLIP</span><span>scikit-learn</span></div>
-              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
-              <a class="project-source text-link" href="https://github.com/n1sh032/sortwise">Explore the source ↗</a>
-              <template class="project-details">
-                <section class="case-section"><h3>The problem</h3><p>Images and PDFs pile up faster than anyone wants to organise them. Filenames alone often say very little about what a document actually contains.</p></section>
-                <section class="case-section"><h3>What I built</h3><ul><li>Built a folder watcher to respond when files arrive.</li><li>Used CLIP to sort images by content and extracted text to organise PDFs.</li><li>Saved user corrections as training examples, making feedback part of the workflow.</li></ul></section>
-                <section class="case-section"><h3>A decision that matters</h3><p>Use the information each file type gives you. Images and PDFs need different processing paths, while corrections provide concrete examples of where the classification needs work.</p></section>
-                <p class="case-takeaway">An applied AI project that connects model outputs with file handling and user feedback — all around a recognisable everyday problem.</p>
-              </template>
-            </div>
-          </article>
-          <article class="project" data-category="software">
-            <div class="project-art forge" aria-hidden="true">
-              <span class="art-label">EXPERIMENT 03</span>
-              <span class="symbol">⌘</span>
-              <span class="art-caption">PLAN → BUILD → TEST → REFINE</span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta"><span>DEVELOPER TOOLS</span><span>03</span></div>
-              <h3>Forge 2.0</h3>
-              <p class="project-tagline">From a plan to the next iteration.</p>
-              <p class="project-summary">A coding workflow prototype with model assisted planning, patch generation and pytest checks. A caller can request another attempt after a failure.</p>
-              <div class="tags"><span>Python</span><span>pytest</span><span>LLM APIs</span></div>
-              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
-              <a class="project-source text-link" href="https://github.com/n1sh032/Forge-2.0">Explore the source ↗</a>
-              <template class="project-details">
-                <section class="case-section"><h3>The problem</h3><p>Generating a piece of code is one step. Planning the work, checking it, and responding to failures are separate problems that need a coordinated workflow.</p></section>
-                <section class="case-section"><h3>What I built</h3><ul><li>Built manager steps for planning, generating patches and running tests.</li><li>Added a repair state that lets the caller request another coding attempt.</li><li>Opened a safety branch with project path validation and explicit file approval for commits.</li></ul></section>
-                <section class="case-section"><h3>A decision that matters</h3><p>Keep the caller in control of plan approval, retry decisions and commit review.</p></section>
-                <p class="case-takeaway">A deeper look at developer tooling: connecting LLM APIs with repeatable checks and explicit control flow.</p>
-              </template>
-            </div>
-          </article>
-          <article class="project" data-category="software">
-            <div class="project-art relay" aria-hidden="true">
-              <span class="art-label">EXPERIMENT 04</span>
-              <span class="symbol">⇄</span>
-              <span class="art-caption">REQUEST / ROUTE / RESPONSE</span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta"><span>AI INFRASTRUCTURE</span><span>04</span></div>
-              <h3>Relay LLM Router</h3>
-              <p class="project-tagline">Two providers. One interface.</p>
-              <p class="project-summary">A FastAPI backend that connects OpenAI and Gemini through a common interface. The project explores practical API design and handling responses across model providers.</p>
-              <div class="tags"><span>Python</span><span>FastAPI</span><span>REST APIs</span></div>
-              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
-              <a class="project-source text-link" href="https://github.com/n1sh032/relay-LLM-router">Explore the source ↗</a>
-              <template class="project-details">
-                <section class="case-section"><h3>The problem</h3><p>Working with more than one AI provider can mean separate request formats and integration paths. That complexity quickly spreads into the application using them.</p></section>
-                <section class="case-section"><h3>What I built</h3><ul><li>Connected OpenAI and Gemini behind one FastAPI interface.</li><li>Implemented a shared backend entry point for model requests.</li><li>Added provider fallback when a configured provider reports an API error or returns no text.</li></ul></section>
-                <section class="case-section"><h3>A decision that matters</h3><p>Put provider-specific integration work in the backend. A shared interface makes the application-facing boundary easier to understand while keeping routing logic in one place.</p></section>
-                <p class="case-takeaway">Practical backend engineering across REST APIs, external services, and the boundary between an application and its AI providers.</p>
-              </template>
-            </div>
-          </article>
-          <article class="project" data-category="hardware">
-            <div class="project-art farm" aria-hidden="true">
-              <span class="art-label">EXPERIMENT 05</span>
-              <span class="symbol">✳</span>
-              <span class="art-caption">SENSE → DECIDE → ACT</span>
-            </div>
-            <div class="project-body">
-              <div class="project-meta"><span>EMBEDDED SYSTEMS</span><span>05</span></div>
-              <h3>Smart Urban Farm</h3>
-              <p class="project-tagline">Code that grows beyond a screen.</p>
-              <p class="project-summary">A PIC16F18877 system that reads soil moisture, temperature, and light sensors to control a fan and water pump. An LCD displays readings while UART supports system monitoring.</p>
-              <div class="tags"><span>Embedded C</span><span>PIC16F18877</span><span>Sensors</span><span>UART</span></div>
-              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
-              <a class="project-source text-link" href="https://github.com/n1sh032/PIC8877F-Smart-Urban-Farm-System">Explore the source ↗</a>
-              <template class="project-details">
-                <section class="case-section"><h3>The problem</h3><p>A small growing environment needs a way to observe changing conditions and respond through physical devices. Sensor readings become useful when they lead to a controlled action.</p></section>
-                <section class="case-section"><h3>What I built</h3><ul><li>Programmed a PIC16F18877 to read soil moisture, temperature, and light sensors.</li><li>Connected sensor-driven control to a fan and water pump.</li><li>Displayed readings on an LCD and used UART for system monitoring.</li></ul></section>
-                <section class="case-section"><h3>A decision that matters</h3><p>Make the system observable as well as functional. The LCD and UART provide ways to see what the controller is reading while working with real sensors and actuators.</p></section>
-                <p class="case-takeaway">Embedded engineering from input to output: sensor integration, microcontroller logic, physical control, and visibility into the system.</p>
-              </template>
-            </div>
-          </article>
-        </div>
+        <div id="projects" class="projects layout-grid"></div>
         <p id="count" class="eyebrow" aria-live="polite"></p>
       </section>
       <section id="about" class="about">
-        <p class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</p>
+        <p class="eyebrow">ABOUT ME</p>
         <div class="about-grid layout-grid">
           <h2>
-            Software brain.
-            <br>
-            <em>Hardware hands.</em>
+            A bit about me
           </h2>
           <div>
-            <p class="large">I like understanding how things work. I like making them work even more.</p>
-            <p>I’m studying Computer Engineering at Temasek Polytechnic. My projects connect the dots between AI, data, application development, and embedded systems — from Python backends to sensors and motor control.</p>
-            <p>My approach is simple: build something, learn from what breaks, and make the next version better.</p>
+            <p class="large">I’m Nish, a Computer Engineering student in Singapore who likes figuring out what software can do with real inputs.</p>
+            <p>CourtVision started with a basketball question. Could I find the moments worth replaying without scrubbing through a whole clip? I built a tool that tracks players and flags possible contact for someone to review.</p>
+            <p>At the lab bench, I’ve used a PIC microcontroller to read sensors and control a pump and fan. Outside class, I’ve taught basic coding to kids in my neighbourhood and at my secondary school. I enjoy the moment when something that looked confusing finally makes sense.</p>
             <div class="education">
               <span>2024 — 2028 (EXPECTED)</span>
               <h3>Diploma in Computer Engineering</h3>
@@ -290,7 +175,7 @@
               <em>outside the IDE.</em>
             </h2>
           </div>
-          <p>National events, campus communities, and someone’s first line of code. These experiences are a big part of the person I’m becoming.</p>
+          <p>I’ve helped welcome new students at orientation, represented TP at Open House, and supported the team on site at the National Day Parade.</p>
         </div>
         <div class="journey-grid layout-grid">
           <div>
@@ -300,7 +185,7 @@
                 Coding mentor
                 <span>2025 ↗</span>
               </summary>
-              <p>Introduced children from low-income families in my neighbourhood and at my secondary school to the basics of coding. I broke unfamiliar ideas down into approachable steps and helped make programming feel less intimidating. Sharing what I know is part of why I enjoy technology: a first working program can give someone a reason to keep exploring.</p>
+              <p>I taught basic coding to children from low-income families in my neighbourhood and at my secondary school, breaking unfamiliar ideas into steps they could try themselves.</p>
             </details>
             <details>
               <summary>
@@ -314,18 +199,18 @@
                 Engineering Student Ambassadors
                 <span>2025 — NOW ↗</span>
               </summary>
-              <p>As a committee member of Engineering Student Ambassadors, I contributed to events that put Temasek Polytechnic in front of prospective students and celebrate its community. From Open House to award ceremonies, I supported event delivery and represented the school through hands-on involvement. It’s an opportunity to take responsibility beyond coursework and be part of how people experience TP.</p>
+              <p>I represented Temasek Polytechnic as an Engineering Student Ambassadors committee member and helped run Open House, award ceremonies, and other student events.</p>
             </details>
             <details>
               <summary>
                 National Day Parade
                 <span>↗</span>
               </summary>
-              <p>As Member-in-Charge at the National Day Parade, I took on an on-site coordination role at one of Singapore’s most significant national events. Working alongside the team to facilitate the event meant staying responsive, communicating clearly, and following through on responsibilities in a live setting. A very different kind of execution from a classroom project — and an experience I’m proud to have contributed to.</p>
+              <p>As Member-in-Charge, I worked with the team on site to coordinate and facilitate the National Day Parade. It was a chance to take responsibility during a live national event.</p>
             </details>
           </div>
           <div class="awards">
-            <p class="eyebrow">THE PROUD-OF-THIS CORNER</p>
+            <p class="eyebrow">AWARDS</p>
             <div>
               <b>Top 20</b>
               <p>
@@ -382,7 +267,7 @@
       </span>
       <span>Made with curiosity. Singapore.</span>
     </footer>
-    <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <dialog id="project-dialog">
       <button class="close" aria-label="Close project">×</button>
       <p class="eyebrow" id="dialog-type"></p>
       <h2 id="dialog-title"></h2>
