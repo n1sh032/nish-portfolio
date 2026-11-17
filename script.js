@@ -5,7 +5,7 @@ const projects = [
     "category": "ai",
     "label": "COMPUTER VISION",
     "tagline": "A closer look at the game.",
-    "description": "Basketball video analysis using player tracking and pose estimation to flag possible contact. A frame viewer makes flagged moments easier to inspect. These are candidate events for review, not automated referee decisions.",
+    "description": "Basketball video analysis with player tracking, pose estimation and annotated video. A development branch flags candidate contact events for human review.",
     "tech": "Python / Player tracking / Pose estimation",
     "repo": "CourtVision",
     "art": "court",
@@ -14,18 +14,18 @@ const projects = [
     "problem": "A basketball game moves quickly. Reviewing footage means finding the moments that deserve a second look, then understanding how players moved around them.",
     "built": [
       "Connected player tracking and pose estimation to a video-analysis workflow.",
-      "Used player positions and body keypoints to flag possible contact moments.",
-      "Built a viewer that opens flagged frames so the evidence can be inspected directly."
+      "Prototyped contact candidates from player positions and body keypoints on a development branch.",
+      "Rendered boxes, track IDs and skeletons over the source video. A frame review viewer is planned."
     ],
     "decision": "Keep a person in the review loop. A flagged moment is a candidate for inspection, rather than a definitive foul decision. That distinction matters when movement, camera angles, and overlapping players make video difficult to interpret.",
-    "takeaway": "Bringing computer vision into a usable review workflow: detection, temporal reasoning, and an interface to inspect the result."
+    "takeaway": "Connecting computer vision to video review through pose data, annotated clips and experimental contact candidates."
   },
   {
     "title": "Sortwise",
     "category": "ai",
     "label": "APPLIED AI",
     "tagline": "A little less digital chaos.",
-    "description": "An intelligent folder watcher that sorts images using CLIP and PDFs using extracted text. User corrections are saved as training examples, connecting organisation with a practical feedback loop.",
+    "description": "A folder watcher that sorts images using CLIP and PDFs using extracted text. It logs manual corrections for a separate training experiment.",
     "tech": "Python / CLIP / scikit-learn",
     "repo": "sortwise",
     "art": "sort",
@@ -45,7 +45,7 @@ const projects = [
     "category": "software",
     "label": "DEVELOPER TOOLS",
     "tagline": "From a plan to the next iteration.",
-    "description": "A coding workflow automation project that connects planning, generation, testing, and repair. A retry limit keeps the repair cycle bounded, with pytest used to check behaviour.",
+    "description": "A coding workflow prototype with model assisted planning, patch generation and pytest checks. A caller can request another attempt after a failure.",
     "tech": "Python / pytest / LLM APIs",
     "repo": "Forge-2.0",
     "art": "forge",
@@ -53,11 +53,11 @@ const projects = [
     "caption": "PLAN → BUILD → TEST → REFINE",
     "problem": "Generating a piece of code is one step. Planning the work, checking it, and responding to failures are separate problems that need a coordinated workflow.",
     "built": [
-      "Automated a sequence for planning, code generation, testing, and repair.",
-      "Used test results to feed a bounded repair cycle.",
-      "Added a retry limit so failed attempts do not turn into an endless loop."
+      "Built manager steps for planning, generating patches and running tests.",
+      "Added a repair state that lets the caller request another coding attempt.",
+      "Opened a safety branch with project path validation and explicit file approval for commits."
     ],
-    "decision": "Give the automation clear boundaries. Test feedback provides a concrete signal for the next attempt; a retry limit makes the workflow stop when further attempts need a human decision.",
+    "decision": "Keep the caller in control of plan approval, retry decisions and commit review.",
     "takeaway": "A deeper look at developer tooling: connecting LLM APIs with repeatable checks and explicit control flow."
   },
   {
@@ -75,7 +75,7 @@ const projects = [
     "built": [
       "Connected OpenAI and Gemini behind one FastAPI interface.",
       "Implemented a shared backend entry point for model requests.",
-      "Checked responses from both providers while building the integration."
+      "Added provider fallback when a configured provider reports an API error or returns no text."
     ],
     "decision": "Put provider-specific integration work in the backend. A shared interface makes the application-facing boundary easier to understand while keeping routing logic in one place.",
     "takeaway": "Practical backend engineering across REST APIs, external services, and the boundary between an application and its AI providers."
