@@ -1,160 +1,23 @@
-// Project content lives here so it is easy to update.
-const projects = [
-  {
-    "title": "CourtVision",
-    "category": "ai",
-    "label": "COMPUTER VISION",
-    "tagline": "A closer look at the game.",
-    "description": "Basketball video analysis with player tracking, pose estimation and annotated video. A development branch flags candidate contact events for human review.",
-    "tech": "Python / Player tracking / Pose estimation",
-    "repo": "CourtVision",
-    "art": "court",
-    "symbol": "◎",
-    "caption": "TRACK → ESTIMATE → REVIEW",
-    "problem": "A basketball game moves quickly. Reviewing footage means finding the moments that deserve a second look, then understanding how players moved around them.",
-    "built": [
-      "Connected player tracking and pose estimation to a video-analysis workflow.",
-      "Prototyped contact candidates from player positions and body keypoints on a development branch.",
-      "Rendered boxes, track IDs and skeletons over the source video. A frame review viewer is planned."
-    ],
-    "decision": "Keep a person in the review loop. A flagged moment is a candidate for inspection, rather than a definitive foul decision. That distinction matters when movement, camera angles, and overlapping players make video difficult to interpret.",
-    "takeaway": "Connecting computer vision to video review through pose data, annotated clips and experimental contact candidates."
-  },
-  {
-    "title": "Sortwise",
-    "category": "ai",
-    "label": "APPLIED AI",
-    "tagline": "A little less digital chaos.",
-    "description": "A folder watcher that sorts images using CLIP and PDFs using extracted text. It logs manual corrections for a separate training experiment.",
-    "tech": "Python / CLIP / scikit-learn",
-    "repo": "sortwise",
-    "art": "sort",
-    "symbol": "▤",
-    "caption": "IMAGES / DOCUMENTS / ORDER",
-    "problem": "Images and PDFs pile up faster than anyone wants to organise them. Filenames alone often say very little about what a document actually contains.",
-    "built": [
-      "Built a folder watcher to respond when files arrive.",
-      "Used CLIP to sort images by content and extracted text to organise PDFs.",
-      "Saved user corrections as training examples, making feedback part of the workflow."
-    ],
-    "decision": "Use the information each file type gives you. Images and PDFs need different processing paths, while corrections provide concrete examples of where the classification needs work.",
-    "takeaway": "An applied AI project that connects model outputs with file handling and user feedback — all around a recognisable everyday problem."
-  },
-  {
-    "title": "Forge 2.0",
-    "category": "software",
-    "label": "DEVELOPER TOOLS",
-    "tagline": "From a plan to the next iteration.",
-    "description": "A coding workflow prototype with model assisted planning, patch generation and pytest checks. A caller can request another attempt after a failure.",
-    "tech": "Python / pytest / LLM APIs",
-    "repo": "Forge-2.0",
-    "art": "forge",
-    "symbol": "⌘",
-    "caption": "PLAN → BUILD → TEST → REFINE",
-    "problem": "Generating a piece of code is one step. Planning the work, checking it, and responding to failures are separate problems that need a coordinated workflow.",
-    "built": [
-      "Built manager steps for planning, generating patches and running tests.",
-      "Added a repair state that lets the caller request another coding attempt.",
-      "Opened a safety branch with project path validation and explicit file approval for commits."
-    ],
-    "decision": "Keep the caller in control of plan approval, retry decisions and commit review.",
-    "takeaway": "A deeper look at developer tooling: connecting LLM APIs with repeatable checks and explicit control flow."
-  },
-  {
-    "title": "Relay LLM Router",
-    "category": "software",
-    "label": "AI INFRASTRUCTURE",
-    "tagline": "Two providers. One interface.",
-    "description": "A FastAPI backend that connects OpenAI and Gemini through a common interface. The project explores practical API design and handling responses across model providers.",
-    "tech": "Python / FastAPI / REST APIs",
-    "repo": "relay-LLM-router",
-    "art": "relay",
-    "symbol": "⇄",
-    "caption": "REQUEST / ROUTE / RESPONSE",
-    "problem": "Working with more than one AI provider can mean separate request formats and integration paths. That complexity quickly spreads into the application using them.",
-    "built": [
-      "Connected OpenAI and Gemini behind one FastAPI interface.",
-      "Implemented a shared backend entry point for model requests.",
-      "Added provider fallback when a configured provider reports an API error or returns no text."
-    ],
-    "decision": "Put provider-specific integration work in the backend. A shared interface makes the application-facing boundary easier to understand while keeping routing logic in one place.",
-    "takeaway": "Practical backend engineering across REST APIs, external services, and the boundary between an application and its AI providers."
-  },
-  {
-    "title": "Smart Urban Farm",
-    "category": "hardware",
-    "label": "EMBEDDED SYSTEMS",
-    "tagline": "Code that grows beyond a screen.",
-    "description": "A PIC16F18877 system that reads soil moisture, temperature, and light sensors to control a fan and water pump. An LCD displays readings while UART supports system monitoring.",
-    "tech": "Embedded C / PIC16F18877 / Sensors / UART",
-    "repo": "PIC8877F-Smart-Urban-Farm-System",
-    "art": "farm",
-    "symbol": "✳",
-    "caption": "SENSE → DECIDE → ACT",
-    "problem": "A small growing environment needs a way to observe changing conditions and respond through physical devices. Sensor readings become useful when they lead to a controlled action.",
-    "built": [
-      "Programmed a PIC16F18877 to read soil moisture, temperature, and light sensors.",
-      "Connected sensor-driven control to a fan and water pump.",
-      "Displayed readings on an LCD and used UART for system monitoring."
-    ],
-    "decision": "Make the system observable as well as functional. The LCD and UART provide ways to see what the controller is reading while working with real sensors and actuators.",
-    "takeaway": "Embedded engineering from input to output: sensor integration, microcontroller logic, physical control, and visibility into the system."
-  }
-];
-
 const projectList = document.querySelector('#projects');
 const projectDialog = document.querySelector('#project-dialog');
 const filterButtons = document.querySelectorAll('[data-filter]');
 
-function openProject(project) {
-  document.querySelector('#dialog-type').textContent = project.label;
-  document.querySelector('#dialog-title').textContent = project.title;
-  document.querySelector('#dialog-description').textContent = project.description;
-  document.querySelector('#dialog-tech').textContent = project.tech;
-  document.querySelector('#dialog-link').href = `https://github.com/n1sh032/${project.repo}`;
-
-  document.querySelector('#dialog-details').innerHTML = `
-    <section class="case-section">
-      <h3>The problem</h3>
-      <p>${project.problem}</p>
-    </section>
-    <section class="case-section">
-      <h3>What I built</h3>
-      <ul>${project.built.map(item => `<li>${item}</li>`).join('')}</ul>
-    </section>
-    <section class="case-section">
-      <h3>A decision that matters</h3>
-      <p>${project.decision}</p>
-    </section>
-    <p class="case-takeaway">${project.takeaway}</p>
-  `;
-
+function openProject(card) {
+  document.querySelector('#dialog-type').textContent = card.querySelector('.project-meta span').textContent;
+  document.querySelector('#dialog-title').textContent = card.querySelector('h3').textContent;
+  document.querySelector('#dialog-description').textContent = card.querySelector('.project-summary').textContent;
+  document.querySelector('#dialog-tech').textContent = Array.from(card.querySelectorAll('.tags span'), tag => tag.textContent).join(' / ');
+  document.querySelector('#dialog-link').href = card.querySelector('.project-source').href;
+  document.querySelector('#dialog-details').replaceChildren(card.querySelector('template').content.cloneNode(true));
   projectDialog.showModal();
   projectDialog.scrollTop = 0;
 }
 
 function renderProjects() {
-  projects.forEach((project, index) => {
-    const card = document.createElement('article');
-    card.className = 'project';
-    card.dataset.category = project.category;
-    card.innerHTML = `
-      <div class="project-art ${project.art}" aria-hidden="true">
-        <span class="art-label">EXPERIMENT 0${index + 1}</span>
-        <span class="symbol">${project.symbol}</span>
-        <span class="art-caption">${project.caption}</span>
-      </div>
-      <div class="project-body">
-        <div class="project-meta"><span>${project.label}</span><span>0${index + 1}</span></div>
-        <h3>${project.title}</h3>
-        <p class="project-tagline">${project.tagline}</p>
-        <p>${project.description}</p>
-        <div class="tags">${project.tech.split(' / ').map(tool => `<span>${tool}</span>`).join('')}</div>
-        <button class="project-open">Inside the project <span>↗</span></button>
-      </div>
-    `;
-    card.querySelector('button').addEventListener('click', () => openProject(project));
-    projectList.append(card);
+  projectList.querySelectorAll('.project').forEach(card => {
+    const button = card.querySelector('.project-open');
+    button.hidden = false;
+    button.addEventListener('click', () => openProject(card));
   });
 }
 

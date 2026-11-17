@@ -6,10 +6,10 @@ A static portfolio built with HTML, CSS and JavaScript. Open `index.html` in a b
 
 | File | What to change here |
 | --- | --- |
-| `index.html` | Page sections, navigation, leadership and contact copy |
+| `index.html` | Page sections, navigation, project cards and case studies, leadership and contact copy |
 | `design.css` | Theme colours, font scale, page width, shared grid and motion settings |
 | `style.css` | Styles for the workbench, project cards, timeline, and dialogs |
-| `script.js` | Project writeups, filters, dialogs, theme preference and basketball demo |
+| `script.js` | Project filters and dialogs, theme preference and basketball demo |
 
 ## Design system
 
