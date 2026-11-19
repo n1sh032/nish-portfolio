@@ -147,14 +147,14 @@
               <div class="project-meta"><span>COMPUTER VISION</span><span>06</span></div>
               <h3>Athena</h3>
               <p class="project-tagline">Bone age estimation from hand X-rays.</p>
-              <p class="project-summary">I built a PyTorch pipeline to compare a Vision Transformer with ResNet-18. On 1,425 RSNA holdout images, ViT-B/16 averaged 16.86 months of error versus 19.40 for ResNet-18.</p>
+              <p class="project-summary">I trained my own bone age predictor in PyTorch using a pretrained Vision Transformer. On 1,425 RSNA holdout X-rays, it averaged 16.86 months of error, compared with 19.40 for ResNet-18.</p>
               <div class="tags"><span>Python</span><span>PyTorch</span><span>Vision Transformer</span></div>
               <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
               <a class="project-source text-link" href="https://github.com/n1sh032/Athena">Explore the source ↗</a>
               <template class="project-details">
-                <section class="case-section"><h3>What I built</h3><p>A shared X-ray loader, training scripts for frozen ResNet-18 and ViT-B/16 backbones, and a holdout evaluator. The Colab demo shows both estimates alongside the RSNA reference age.</p></section>
-                <section class="case-section"><h3>What I measured</h3><p>I selected checkpoints on the development split and scored them on the separate RSNA holdout. ViT lowered MAE by 2.54 months versus ResNet-18. Its error rose to 24.29 months for reference ages of 180 months and up.</p></section>
-                <p class="case-takeaway">An educational benchmark. Performance on this sample does not establish clinical use.</p>
+                <section class="case-section"><h3>What I built</h3><p>I started with two pretrained models and trained a new prediction layer for each one. I also made a Colab demo so I could see both guesses next to the reference age for the same X-ray.</p></section>
+                <section class="case-section"><h3>What I measured</h3><p>I picked the best version of each model on the development set, then tested both on separate X-rays. The Vision Transformer was closer on average, but its error rose to 24.29 months for reference ages of 180 months and up.</p></section>
+                <p class="case-takeaway">I built Athena to learn how to train and compare image models. The demo is for education.</p>
                 <p><a class="text-link" href="https://github.com/n1sh032/Athena/blob/main/docs/holdout-results.md">Read the holdout report ↗</a></p>
               </template>
             </div>
