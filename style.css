@@ -1091,3 +1091,14 @@ main {
     will-change: transform;
   }
 }
+
+.athena {
+  background: #123b43;
+  color: #e2fbf3;
+}
+.athena .symbol {
+  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.06em;
+}

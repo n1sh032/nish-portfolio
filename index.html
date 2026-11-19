@@ -108,13 +108,146 @@
         <div class="filters" aria-label="Filter projects">
           <button class="active" data-filter="all" aria-pressed="true">
             All work
-            <sup>05</sup>
+            <sup>06</sup>
           </button>
           <button data-filter="ai" aria-pressed="false">AI & vision</button>
           <button data-filter="software" aria-pressed="false">Software</button>
           <button data-filter="hardware" aria-pressed="false">Hardware</button>
         </div>
-        <div id="projects" class="projects layout-grid"></div>
+        <div id="projects" class="projects layout-grid">
+          <article class="project" data-category="ai">
+            <div class="project-art court" aria-hidden="true">
+              <span class="art-label">EXPERIMENT 01</span>
+              <span class="symbol">◎</span>
+              <span class="art-caption">TRACK → ESTIMATE → REVIEW</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>COMPUTER VISION</span><span>01</span></div>
+              <h3>CourtVision</h3>
+              <p class="project-tagline">A closer look at the game.</p>
+              <p class="project-summary">Basketball video analysis with player tracking, pose estimation and annotated video. A development branch flags candidate contact events for human review.</p>
+              <div class="tags"><span>Python</span><span>Player tracking</span><span>Pose estimation</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/CourtVision">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>The problem</h3><p>A basketball game moves quickly. Reviewing footage means finding the moments that deserve a second look, then understanding how players moved around them.</p></section>
+                <section class="case-section"><h3>What I built</h3><ul><li>Connected player tracking and pose estimation to a video-analysis workflow.</li><li>Prototyped contact candidates from player positions and body keypoints on a development branch.</li><li>Rendered boxes, track IDs and skeletons over the source video. A frame review viewer is planned.</li></ul></section>
+                <section class="case-section"><h3>A decision that matters</h3><p>Keep a person in the review loop. A flagged moment is a candidate for inspection, rather than a definitive foul decision. That distinction matters when movement, camera angles, and overlapping players make video difficult to interpret.</p></section>
+                <p class="case-takeaway">Connecting computer vision to video review through pose data, annotated clips and experimental contact candidates.</p>
+              </template>
+            </div>
+          </article>
+          <article id="athena" class="project" data-category="ai">
+            <div class="project-art athena" aria-hidden="true">
+              <span class="art-label">RSNA HOLDOUT · 1,425 IMAGES</span>
+              <span class="symbol">16.86</span>
+              <span class="art-caption">VIT-B/16 MEAN ABSOLUTE ERROR · MONTHS</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>COMPUTER VISION</span><span>06</span></div>
+              <h3>Athena</h3>
+              <p class="project-tagline">Bone age estimation from hand X-rays.</p>
+              <p class="project-summary">I built a PyTorch pipeline to compare a Vision Transformer with ResNet-18. On 1,425 RSNA holdout images, ViT-B/16 averaged 16.86 months of error versus 19.40 for ResNet-18.</p>
+              <div class="tags"><span>Python</span><span>PyTorch</span><span>Vision Transformer</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/Athena">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>What I built</h3><p>A shared X-ray loader, training scripts for frozen ResNet-18 and ViT-B/16 backbones, and a holdout evaluator. The Colab demo shows both estimates alongside the RSNA reference age.</p></section>
+                <section class="case-section"><h3>What I measured</h3><p>I selected checkpoints on the development split and scored them on the separate RSNA holdout. ViT lowered MAE by 2.54 months versus ResNet-18. Its error rose to 24.29 months for reference ages of 180 months and up.</p></section>
+                <p class="case-takeaway">An educational benchmark. Performance on this sample does not establish clinical use.</p>
+                <p><a class="text-link" href="https://github.com/n1sh032/Athena/blob/main/docs/holdout-results.md">Read the holdout report ↗</a></p>
+              </template>
+            </div>
+          </article>
+          <article class="project" data-category="ai">
+            <div class="project-art sort" aria-hidden="true">
+              <span class="art-label">EXPERIMENT 02</span>
+              <span class="symbol">▤</span>
+              <span class="art-caption">IMAGES / DOCUMENTS / ORDER</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>APPLIED AI</span><span>02</span></div>
+              <h3>Sortwise</h3>
+              <p class="project-tagline">A little less digital chaos.</p>
+              <p class="project-summary">A folder watcher that sorts images using CLIP and PDFs using extracted text. It logs manual corrections for a separate training experiment.</p>
+              <div class="tags"><span>Python</span><span>CLIP</span><span>scikit-learn</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/sortwise">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>The problem</h3><p>Images and PDFs pile up faster than anyone wants to organise them. Filenames alone often say very little about what a document actually contains.</p></section>
+                <section class="case-section"><h3>What I built</h3><ul><li>Built a folder watcher to respond when files arrive.</li><li>Used CLIP to sort images by content and extracted text to organise PDFs.</li><li>Saved user corrections as training examples, making feedback part of the workflow.</li></ul></section>
+                <section class="case-section"><h3>A decision that matters</h3><p>Use the information each file type gives you. Images and PDFs need different processing paths, while corrections provide concrete examples of where the classification needs work.</p></section>
+                <p class="case-takeaway">An applied AI project that connects model outputs with file handling and user feedback — all around a recognisable everyday problem.</p>
+              </template>
+            </div>
+          </article>
+          <article class="project" data-category="software">
+            <div class="project-art forge" aria-hidden="true">
+              <span class="art-label">EXPERIMENT 03</span>
+              <span class="symbol">⌘</span>
+              <span class="art-caption">PLAN → BUILD → TEST → REFINE</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>DEVELOPER TOOLS</span><span>03</span></div>
+              <h3>Forge 2.0</h3>
+              <p class="project-tagline">From a plan to the next iteration.</p>
+              <p class="project-summary">A coding workflow prototype with model assisted planning, patch generation and pytest checks. A caller can request another attempt after a failure.</p>
+              <div class="tags"><span>Python</span><span>pytest</span><span>LLM APIs</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/Forge-2.0">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>The problem</h3><p>Generating a piece of code is one step. Planning the work, checking it, and responding to failures are separate problems that need a coordinated workflow.</p></section>
+                <section class="case-section"><h3>What I built</h3><ul><li>Built manager steps for planning, generating patches and running tests.</li><li>Added a repair state that lets the caller request another coding attempt.</li><li>Opened a safety branch with project path validation and explicit file approval for commits.</li></ul></section>
+                <section class="case-section"><h3>A decision that matters</h3><p>Keep the caller in control of plan approval, retry decisions and commit review.</p></section>
+                <p class="case-takeaway">A deeper look at developer tooling: connecting LLM APIs with repeatable checks and explicit control flow.</p>
+              </template>
+            </div>
+          </article>
+          <article class="project" data-category="software">
+            <div class="project-art relay" aria-hidden="true">
+              <span class="art-label">EXPERIMENT 04</span>
+              <span class="symbol">⇄</span>
+              <span class="art-caption">REQUEST / ROUTE / RESPONSE</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>AI INFRASTRUCTURE</span><span>04</span></div>
+              <h3>Relay LLM Router</h3>
+              <p class="project-tagline">Two providers. One interface.</p>
+              <p class="project-summary">A FastAPI backend that connects OpenAI and Gemini through a common interface. The project explores practical API design and handling responses across model providers.</p>
+              <div class="tags"><span>Python</span><span>FastAPI</span><span>REST APIs</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/relay-LLM-router">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>The problem</h3><p>Working with more than one AI provider can mean separate request formats and integration paths. That complexity quickly spreads into the application using them.</p></section>
+                <section class="case-section"><h3>What I built</h3><ul><li>Connected OpenAI and Gemini behind one FastAPI interface.</li><li>Implemented a shared backend entry point for model requests.</li><li>Added provider fallback when a configured provider reports an API error or returns no text.</li></ul></section>
+                <section class="case-section"><h3>A decision that matters</h3><p>Put provider-specific integration work in the backend. A shared interface makes the application-facing boundary easier to understand while keeping routing logic in one place.</p></section>
+                <p class="case-takeaway">Practical backend engineering across REST APIs, external services, and the boundary between an application and its AI providers.</p>
+              </template>
+            </div>
+          </article>
+          <article class="project" data-category="hardware">
+            <div class="project-art farm" aria-hidden="true">
+              <span class="art-label">EXPERIMENT 05</span>
+              <span class="symbol">✳</span>
+              <span class="art-caption">SENSE → DECIDE → ACT</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>EMBEDDED SYSTEMS</span><span>05</span></div>
+              <h3>Smart Urban Farm</h3>
+              <p class="project-tagline">Code that grows beyond a screen.</p>
+              <p class="project-summary">A PIC16F18877 system that reads soil moisture, temperature, and light sensors to control a fan and water pump. An LCD displays readings while UART supports system monitoring.</p>
+              <div class="tags"><span>Embedded C</span><span>PIC16F18877</span><span>Sensors</span><span>UART</span></div>
+              <button type="button" class="project-open" hidden>Inside the project <span>↗</span></button>
+              <a class="project-source text-link" href="https://github.com/n1sh032/PIC8877F-Smart-Urban-Farm-System">Explore the source ↗</a>
+              <template class="project-details">
+                <section class="case-section"><h3>The problem</h3><p>A small growing environment needs a way to observe changing conditions and respond through physical devices. Sensor readings become useful when they lead to a controlled action.</p></section>
+                <section class="case-section"><h3>What I built</h3><ul><li>Programmed a PIC16F18877 to read soil moisture, temperature, and light sensors.</li><li>Connected sensor-driven control to a fan and water pump.</li><li>Displayed readings on an LCD and used UART for system monitoring.</li></ul></section>
+                <section class="case-section"><h3>A decision that matters</h3><p>Make the system observable as well as functional. The LCD and UART provide ways to see what the controller is reading while working with real sensors and actuators.</p></section>
+                <p class="case-takeaway">Embedded engineering from input to output: sensor integration, microcontroller logic, physical control, and visibility into the system.</p>
+              </template>
+            </div>
+          </article>
+        </div>
         <p id="count" class="eyebrow" aria-live="polite"></p>
       </section>
       <section id="about" class="about">
